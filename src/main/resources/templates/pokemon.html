@@ -1,0 +1,26 @@
+<html xmlns:th='http://www.thymeleaf.org'>
+<body>
+    <header>
+        <img src="/image/nohiyoko.png" alt="ひよこのマーク" width="200" height="200">
+    </header>
+
+    <main>
+        <h1>ポケモンAPIの活用練習</h1>
+        <form action="./pokemon" method="post">
+            <p>ポケモンの番号からの検索</P>
+            <input type="text" name="p_number" th:velue="${pokemonData.ID}">
+            <button type="submit">検索</button>
+        </form>
+        <p>右のポケモンの番号データの保存</p>
+        <form action="./pokemonKeep" method="post">
+            <input type="text" name="data" th:value="${pokemonData.ID}">
+            <button type="submit">保存</button>
+            <p><span th:text="${UpData}"></span></p>
+        </form>
+        <a href="./signIn" >戻る</a>
+    </main>
+    <p>データ：<br>ポケモン番号:<span th:text="${pokemonData.ID}"></span></p>
+    <p>名前：<span th:text="${pokemonData.Name}"></span></p>
+    <p>画像：<img th:src="${pokemonData.ImageURL}" th:alt="${pokemonData.Name}+の画像"></p>
+</body>
+</html>

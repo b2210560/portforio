@@ -1,0 +1,10 @@
+<html xmlns:th='http://www.thymeleaf.org'>
+<body>
+    <main>
+        <p>ベータベースサーバへのURLはこちら↓</p>
+        <p><span th:text="${userValue.userName}"></span>さんのページ</p>
+        <a th:href="${url}">WordPressリンク</a>
+        <a href="./signIn" >戻る</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html xmlns:th='http://www.thymeleaf.org'>
+<body>
+<p><span th:text="${userValue.userName}"></span>さんのページ</p>
+
+<form action="./chat" method="post">
+    <input type="text" name="chatGroup" th:value="${chatGroup}" >
+    <label>発言</label>:<input th:type="text" name="chatBody"/>
+    <button type="submit">投稿(140文字まで)</button>
+</form>
+
+<dl>
+    <th:block th:each="chatMessage :${chatMessageList}">
+        <dt th:text="${chatMessage.chatPartner}"></dt>
+        <dd th:text="${chatMessage.chatBody}"></dd>
+    </th:block>
+</dl>
+<p><a href="./signIn">戻る</a></p>
+<p><a href="./chatDatabase">グループ一覧</a></p>
+</body>
+</html>

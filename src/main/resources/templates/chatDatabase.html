@@ -1,0 +1,22 @@
+<html xmlns:th='http://www.thymeleaf.org'>
+<body>
+<p><span th:text="${userValue.userId}"></span>
+    (<span th:text="${userValue.userName}"></span>)さんがサインインに成功しました</p>
+<dl>
+    <th:block th:each="ChatGroup :${chatGroupList}">
+        <dt th:text="${ChatGroup.chatGroup}"></dt>
+        <form action="./chatDatabase" method="post" >
+            <p>グループ名:<span th:text="${ChatGroup.chatGroup}" ></span></p>
+            <button type="submit" name="chatGroup" th:value="${ChatGroup.chatGroup}"> 進む→</button>
+        </form>
+    </th:block>
+</dl>
+<form action="/newGroup" method="post">
+    <p>新しくグループを作る↓</p>
+    <p>グループ名:<input type="text" name="newGroup"></p>
+    <button type="submit">作る</button>
+</form>
+<span th:text="${chatFalse}"></span>
+<p><a href="./signIn">戻る</a></p>
+</body>
+</html>

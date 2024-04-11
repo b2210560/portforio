@@ -1,0 +1,23 @@
+<html xmlns:th='http://www.thymeleaf.org'>
+<body>
+<header>
+    <img src="/image/nohiyoko.png" alt="ひよこのマーク" width="200" height="200">
+</header>
+<p><span th:text="${userValue.userName}"></span>さんのページ</p>
+<main>
+    <h1>ポケモンAPIの検索履歴</h1>
+    <a href="./pokemon" >ポケモンの検索へ</a>
+    <a href="./signIn" >戻る</a>
+    <dl>
+        <th:block th:each="pokemonDeleteData :${pokemonList}">
+            <form action="./pokemonDelete" method="post">
+                <p>番号"<dt th:text="${pokemonDeleteData.ID}"></dt>"</p>
+                <p>名前":<dd th:text="${pokemonDeleteData.Name}"></dd>"</p>
+                <img th:src="${pokemonDeleteData.ImageURL}" th:alt="${pokemonDeleteData.Name}+の画像">
+                <button type="submit" name="delete_value" th:value="${pokemonDeleteData.PostedAt}">削除</button>
+            </form>
+        </th:block>
+    </dl>
+</main>
+</body>
+</html>
